@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integridade e Controle Interno — SAAE Itabirito</title>
+
+<!-- Fonte institucional: Montserrat -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     PALETA DA MARCA SAAE  (não precisa mexer)
+     ============================================================ */
+  :root{
+    --azul:      #4F75A3;   /* azul institucional (primário) */
+    --azul-esc:  #4254A5;   /* azul profundo               */
+    --navy:      #24303C;   /* texto / âncora              */
+    --verde:     #4B9865;   /* saneamento (uso pontual)    */
+    --dourado:   #D39A29;   /* destaque / ações            */
+    --terra:     #963820;   /* alerta (uso raro)           */
+    --papel:     #F7F9FB;   /* fundo                       */
+    --linha:     #E1E7ED;   /* divisórias                  */
+    --cinza:     #5B6875;   /* texto secundário            */
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Montserrat', system-ui, sans-serif;
+    color:var(--navy);
+    background:var(--papel);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ============================================================
+     CABEÇALHO
+     ============================================================ */
+  header{
+    background:var(--azul);
+    color:#fff;
+    padding:2.4rem 1.5rem 0;
+    position:relative;
+  }
+  .topo{
+    max-width:920px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:1rem;
+  }
+  /* Marca em texto. Substitua por <img src="logo.png"> quando tiver o PNG. */
+  .marca{
+    display:flex; flex-direction:column; line-height:1.05;
+  }
+  .marca .sigla{
+    font-weight:700; font-size:1.7rem; letter-spacing:.5px;
+  }
+  .marca .ente{
+    font-weight:500; font-size:.82rem; color:#DCE6F0;
+  }
+  .selo-unidade{
+    margin-left:auto;
+    font-size:.72rem; font-weight:600;
+    background:rgba(255,255,255,.14);
+    padding:.4rem .8rem; border-radius:999px;
+    white-space:nowrap;
+  }
+
+  .titulo-pagina{
+    max-width:920px; margin:1.8rem auto 2.2rem;
+  }
+  .titulo-pagina h1{
+    font-weight:700; font-size:2rem; line-height:1.15;
+  }
+  .titulo-pagina p{
+    margin-top:.6rem; max-width:60ch;
+    color:#E4ECF4; font-weight:400; font-size:1rem;
+  }
+
+  /* Onda de saneamento — único gesto decorativo do cabeçalho */
+  .onda{ display:block; width:100%; height:38px; }
+
+  /* ============================================================
+     CORPO
+     ============================================================ */
+  main{ max-width:920px; margin:2.4rem auto 0; padding:0 1.5rem; }
+
+  .grupo{ margin-bottom:2.6rem; }
+  .grupo > h2{
+    font-size:.98rem; font-weight:700; color:var(--azul-esc);
+    padding-bottom:.6rem; margin-bottom:.4rem;
+    border-bottom:2px solid var(--linha);
+  }
+
+  /* Cada documento é uma linha, não um cartão pesado */
+  .doc{
+    display:flex; align-items:center; gap:1rem;
+    padding:1.05rem .4rem;
+    border-bottom:1px solid var(--linha);
+    text-decoration:none; color:inherit;
+    transition:background .15s ease;
+  }
+  .doc:hover, .doc:focus-visible{ background:#EEF3F8; outline:none; }
+  .doc:focus-visible{ box-shadow:inset 0 0 0 2px var(--azul); border-radius:6px; }
+
+  .doc .icone{
+    flex:0 0 42px; height:42px; border-radius:8px;
+    background:var(--azul); color:#fff;
+    display:grid; place-items:center;
+    font-size:.62rem; font-weight:700; letter-spacing:.5px;
+  }
+  .doc .info{ flex:1; min-width:0; }
+  .doc .info .nome{ font-weight:600; font-size:1rem; }
+  .doc .info .desc{ font-size:.86rem; color:var(--cinza); margin-top:.15rem; }
+  .doc .acao{
+    flex:0 0 auto; font-size:.82rem; font-weight:600; color:var(--dourado);
+    white-space:nowrap;
+  }
+  .doc .meta{ font-size:.72rem; color:var(--cinza); margin-top:.2rem; }
+
+  /* ============================================================
+     RODAPÉ INSTITUCIONAL
+     ============================================================ */
+  footer{
+    background:var(--navy); color:#C6D0DA;
+    margin-top:3rem; padding:2rem 1.5rem;
+    font-size:.83rem;
+  }
+  .rodape{ max-width:920px; margin:0 auto; }
+  .rodape .linha1{ font-weight:600; color:#fff; }
+  .rodape .contato{ margin-top:.5rem; line-height:1.9; }
+  .rodape a{ color:#9CC0E0; text-decoration:none; }
+  .rodape a:hover{ text-decoration:underline; }
+
+  @media (max-width:560px){
+    .titulo-pagina h1{ font-size:1.55rem; }
+    .doc .acao{ display:none; }   /* em telas pequenas a linha toda é clicável */
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topo">
+    <div class="marca">
+      <span class="sigla">SAAE</span>
+      <span class="ente">Serviço Autônomo de Saneamento Básico · Itabirito/MG</span>
+    </div>
+    <span class="selo-unidade">Controle Interno e Integridade</span>
+  </div>
+
+  <div class="titulo-pagina">
+    <h1>Integridade e Controle Interno</h1>
+    <p>Documentos públicos da Unidade de Controle Interno e Integridade do SAAE de Itabirito.
+       Selecione um item para abrir o arquivo.</p>
+  </div>
+
+  <!-- onda decorativa (saneamento) -->
+  <svg class="onda" viewBox="0 0 1200 38" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,20 C150,38 350,0 600,18 C850,36 1050,4 1200,20 L1200,38 L0,38 Z" fill="#F7F9FB"/>
+  </svg>
+</header>
+
+<main>
+
+  <!-- ==========================================================
+       GRUPO 1  — duplique um bloco <a class="doc"> para cada documento
+       Troque o href pelo link real do arquivo (PDF, planilha etc.)
+       ========================================================== -->
+  <section class="grupo">
+    <h2>Instrumentos de integridade</h2>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">PDF</span>
+      <span class="info">
+        <span class="nome">Plano de Integridade</span>
+        <span class="desc">Diretrizes, riscos e medidas de integridade da autarquia.</span>
+        <span class="meta">Atualizado em 03/2026</span>
+      </span>
+      <span class="acao">Abrir documento</span>
+    </a>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">PDF</span>
+      <span class="info">
+        <span class="nome">Código de Ética e Conduta</span>
+        <span class="desc">Deveres, vedações e canais de orientação ética.</span>
+      </span>
+      <span class="acao">Abrir documento</span>
+    </a>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">PDF</span>
+      <span class="info">
+        <span class="nome">Comissão de Ética — composição e portaria</span>
+        <span class="desc">Membros titulares e suplentes designados.</span>
+      </span>
+      <span class="acao">Abrir documento</span>
+    </a>
+  </section>
+
+  <!-- ==========================================================
+       GRUPO 2
+       ========================================================== -->
+  <section class="grupo">
+    <h2>Relatórios e prestação de contas</h2>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">PDF</span>
+      <span class="info">
+        <span class="nome">Relatório Anual de Controle Interno</span>
+        <span class="desc">Consolidação das atividades e apontamentos do exercício.</span>
+        <span class="meta">Exercício 2025</span>
+      </span>
+      <span class="acao">Abrir documento</span>
+    </a>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">XLS</span>
+      <span class="info">
+        <span class="nome">Plano Anual de Auditoria Interna</span>
+        <span class="desc">Cronograma e escopo das auditorias planejadas.</span>
+      </span>
+      <span class="acao">Abrir planilha</span>
+    </a>
+  </section>
+
+  <!-- ==========================================================
+       GRUPO 3
+       ========================================================== -->
+  <section class="grupo">
+    <h2>Transparência e acesso à informação</h2>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">PDF</span>
+      <span class="info">
+        <span class="nome">Carta de Serviços ao Usuário</span>
+        <span class="desc">Serviços prestados, requisitos e prazos de atendimento.</span>
+      </span>
+      <span class="acao">Abrir documento</span>
+    </a>
+
+    <a class="doc" href="#" target="_blank" rel="noopener">
+      <span class="icone">LINK</span>
+      <span class="info">
+        <span class="nome">Ouvidoria — registrar manifestação</span>
+        <span class="desc">Canal para denúncias, reclamações, sugestões e elogios.</span>
+      </span>
+      <span class="acao">Acessar canal</span>
+    </a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="rodape">
+    <div class="linha1">SAAE de Itabirito — Unidade de Controle Interno e Integridade</div>
+    <div class="contato">
+      Rua Rio Branco, 99, Centro — Itabirito/MG<br>
+      (31) 3562-4100 &nbsp;·&nbsp; @saaeitabirito &nbsp;·&nbsp;
+      <a href="https://saaeita.mg.gov.br" target="_blank" rel="noopener">saaeita.mg.gov.br</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
